@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: identity
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/plazoleta
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  sql:
+    init:
+      mode: always
+      continue-on-error: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        default_schema: identity
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+        hbm2ddl:
+          create_namespaces: true
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
